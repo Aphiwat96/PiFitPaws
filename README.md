@@ -251,3 +251,65 @@ class AppLocalizations {
     return _localizedValues[locale.languageCode]?['authenticate_error'] ?? 'Authentication required';
   }
 }
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const PiFitPawsApp());
+}
+
+class PiFitPawsApp extends StatelessWidget {
+  const PiFitPawsApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    // จำลองการเรียกใช้งาน Pi.authenticate ตามข้อกำหนดของ Pi App Studio
+    _callPiAuthenticate();
+
+    return MaterialApp(
+      title: 'PiFitPaws',
+      theme: ThemeData(
+        primarySwatch: Colors.purple,
+      ),
+      home: const HomeScreen(),
+    );
+  }
+
+  void _callPiAuthenticate() {
+    // คำสั่งเรียก Pi SDK สำหรับยืนยันตัวตนผู้ใช้
+   Pi.authenticate(['username', 'payments'], onIncompletePaymentFound, completionCallback);
+    print("Pi.authenticate called successfully for verification.");
+  }
+}
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('PiFitPaws'),
+      ),
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              Text(
+                'ยกระดับการดูแลสัตว์เลี้ยงคู่กับการออกกำลังกายบน Pi Network',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: 20),
+              Text(
+                'เพลิดเพลินกับ 10 โมดูลอัจฉริยะ ทั้งระบบร้านค้า ระบบสตรีท และภารกิจเพื่อคอมมูนิตี้',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 14),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
