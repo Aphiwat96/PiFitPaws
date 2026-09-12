@@ -174,3 +174,80 @@ class WeatherEnvironmentManager {
     }
   }
 }
+import 'package:flutter/material.dart';
+// สมมติว่ามีการเรียกใช้งาน Pi SDK ตามมาตรฐานของ Pi Network
+// Pi.authenticate(scopes, onIncompletePaymentFound, completionCallback);
+
+void authenticateUser() async {
+  try {
+    // โค้ดเรียกใช้งาน Pi Authentication ตามข้อกำหนดของ Pi App Studio
+    // ตรวจสอบให้แน่ใจว่ามีการเรียกใช้ Pi.authenticate
+    print("Authenticating with Pi Network...");
+    
+    // ตัวอย่างฟังก์ชันจำลองการเรียก Pi SDK
+    // Pi.authenticate(['username', 'payments'], (payment) {
+    //   // จัดการเคสการชำระเงินค้าง
+    // }, (authResult) {
+    //   // จัดการหลังล็อกอินสำเร็จ
+    // });
+    
+  } catch (e) {
+    print("Authentication error: $e");
+  }
+}
+import 'package:flutter/material.dart';
+
+// คลาสจัดการข้อความหลายภาษา (รองรับไทย และ อังกฤษ)
+class AppLocalizations {
+  final Locale locale;
+
+  AppLocalizations(this.locale);
+
+  static AppLocalizations? of(BuildContext context) {
+    return Localizations.of<AppLocalizations>(context, AppLocalizations);
+  }
+
+  // ฐานข้อมูลคำแปลภายในแอป
+  static final Map<String, Map<String, String>> _localizedValues = {
+    'th': {
+      'appTitle': 'PiFitPaws',
+      'welcome': 'ยินดีต้อนรับสู่ PiFitPaws',
+      'shop': 'ร้านค้าและคลังไอเทม',
+      'streak': 'เช็คอินสะสมสตรีท',
+      'kennel': 'บ้านสุนัข (Kennel)',
+      'authenticate_error': 'ไม่พบการเข้าสู่ระบบ กรุณายืนยันตัวตนด้วย Pi.authenticate',
+    },
+    'en': {
+      'appTitle': 'PiFitPaws',
+      'welcome': 'Welcome to PiFitPaws',
+      'shop': 'Ground Shop & Inventory',
+      'streak': 'Streak Tracking',
+      'kennel': 'Dog Kennel System',
+      'authenticate_error': 'Pi sign-in not detected. Please call Pi.authenticate',
+    },
+  };
+
+  String get appTitle {
+    return _localizedValues[locale.languageCode]?['appTitle'] ?? 'PiFitPaws';
+  }
+
+  String get welcome {
+    return _localizedValues[locale.languageCode]?['welcome'] ?? 'Welcome';
+  }
+
+  String get shop {
+    return _localizedValues[locale.languageCode]?['shop'] ?? 'Shop';
+  }
+
+  String get streak {
+    return _localizedValues[locale.languageCode]?['streak'] ?? 'Streak';
+  }
+
+  String get kennel {
+    return _localizedValues[locale.languageCode]?['kennel'] ?? 'Kennel';
+  }
+
+  String get authenticateError {
+    return _localizedValues[locale.languageCode]?['authenticate_error'] ?? 'Authentication required';
+  }
+}
