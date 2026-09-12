@@ -1,10 +1,8 @@
-# PiFitPaws - Official Source Code & Architecture v1.0
-
 ซอร์สโค้ดและโครงสร้างสถาปัตยกรรมระบบกลางของโปรเจกต์ **PiFitPaws** เวอร์ชัน 1.0 ครอบคลุมทั้งฝั่งหน้าบ้าน (Flutter) และหลังบ้าน (Node.js / TypeScript / PostgreSQL)
 
 ---
 
-## 📋 สสารบัญระบบหลัก (10 Core Modules)
+## 📋 สารบัญระบบหลัก (10 Core Modules)
 1. Flutter App Structure & Navigation (5-Tab Bar)
 2. Backend Validation Engine (Security & Anti-Cheat)
 3. Player XP & Leveling System
